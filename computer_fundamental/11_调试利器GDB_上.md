@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 }
 ```
 编译运行, 出现段错误
-<pre>
+<pre style=" background-color:#fff">
 $ gcc <font color=red>-g</font> *.c
 $ ./a.out
 main() : begin...
@@ -120,7 +120,13 @@ test_1() : 0x40063a
 g_pointer = (nil)
 Segmentation fault (core dumped)
 </pre>
-让程序崩溃时产生core文件 (低版本的编译器不会自动生成)
-<pre>
+
+让程序崩溃时产生core文件
+<pre style=" background-color:#fff">
 $ ulimit -c unlimited
 </pre>
+
+
+> 不能在中文路径下生成 core 文件
+> 将 `ulimit -c unlimited` 放置于 `/etc/profile` 可不用每次手动敲命令
+
