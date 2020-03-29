@@ -313,7 +313,7 @@ Reading symbols from a.out...done.
 (gdb) <font color=blue>set args hello</font>
 (gdb) <font color=blue>start</font>
 Temporary breakpoint 1 at 0x40069a: file test.c, line 21.
-Starting program: /home/book/4_computer_foundation/1_computer_fundamental/11_GDB_Debugging_weapon_1/code/a.out hello
+Starting program: /home/.../11_GDB_Debugging_weapon_1/code/a.out hello
 
 Temporary breakpoint 1, main (argc=2, argv=0x7fffffffe358) at test.c:21
 21      {
@@ -325,7 +325,7 @@ Num     Type           Disp Enb Address            What
 (gdb) <font color=blue>continue</font>
 Continuing.
 main() : begin...
-argv[0] = /home/book/4_computer_foundation/1_computer_fundamental/11_GDB_Debugging_weapon_1/code/a.out
+argv[0] = /home/book/.../11_GDB_Debugging_weapon_1/code/a.out
 argv[1] = hello
 
 Breakpoint 2, main (argc=2, argv=0x7fffffffe358) at test.c:33
@@ -387,7 +387,7 @@ Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) <font color=blue>start</font>
 Temporary breakpoint 1 at 0x40069a: file test.c, line 21.
-Starting program: /home/book/4_computer_foundation/1_computer_fundamental/11_GDB_Debugging_weapon_1/code/a.out
+Starting program: /home/.../11_GDB_Debugging_weapon_1/code/a.out
 
 Temporary breakpoint 1, main (argc=1, argv=0x7fffffffe368) at test.c:21
 21      {
@@ -399,7 +399,7 @@ Num     Type           Disp Enb Address            What
 (gdb) <font color=blue>continue</font>
 Continuing.
 main() : begin...
-argv[0] = /home/book/4_computer_foundation/1_computer_fundamental/11_GDB_Debugging_weapon_1/code/a.out
+argv[0] = /home/.../11_GDB_Debugging_weapon_1/code/a.out
 test_1() : 0x40063a
 test_2() : 0x400655
 test_3() : 0x400670
@@ -442,7 +442,7 @@ Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) <font color=blue>start</font>
 Temporary breakpoint 1 at 0x40069a: file test.c, line 21.
-Starting program: /home/book/4_computer_foundation/1_computer_fundamental/11_GDB_Debugging_weapon_1/code/a.out
+Starting program: /home/.../11_GDB_Debugging_weapon_1/code/a.out
 
 Temporary breakpoint 1, main (argc=1, argv=0x7fffffffe368) at test.c:21
 21      {
@@ -456,7 +456,7 @@ Num     Type           Disp Enb Address            What
 (gdb) <font color=blue>continue</font>
 Continuing.
 main() : begin...
-argv[0] = /home/book/4_computer_foundation/1_computer_fundamental/11_GDB_Debugging_weapon_1/code/a.out
+argv[0] = /home/.../11_GDB_Debugging_weapon_1/code/a.out
 test_1() : 0x40063a
 test_2() : 0x400655
 test_3() : 0x400670
