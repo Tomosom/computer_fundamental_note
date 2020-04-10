@@ -1,4 +1,3 @@
-
 char g_no_value;
 int g_value = 1;
 char g_str[] = "D.T.Software";

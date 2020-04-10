@@ -45,7 +45,7 @@
     </pre>
     ![](_v_images_11/2.png)
 
-# 实验[^1]
+# [<u>实验</u>](code/11_GDB_Debugging_weapon_1)
 编译运行, 出现段错误
 
 <pre style=" background-color:#fff">
@@ -287,7 +287,7 @@ $
     - GDB 中通过 <font color=blue>hbreak</font> 命令支持硬件断点
     - <font color=blue>hbreak</font> 与 <font color=red>break</font> 使用方式完全一致
 
-# 实验[^1]
+# [<u>实验</u>](code/11_GDB_Debugging_weapon_1)
 <pre style=" background-color:#fff">
 $ gcc -g *.c
 </pre>
@@ -487,66 +487,3 @@ main() : end...
 - GDB 能够根据 Core Dump <font color=green>回溯检查导致程序异常结束的原因</font>
 - GDB 同时支持<font color=purple>软件断点</font>, <font color=purple>硬件断点</font>和<font color=purple>数据断点</font>
 - GDB 是嵌入式开发中<font color=red>必须掌握</font>的重要工具
-
-
-
-
-
-
-
-[^1]: 实验代码
-    func.c
-    ```c
-    #include <stdio.h>
-    int *g_pointer;
-    void func()
-    {
-        *g_pointer = 98;
-        return;
-    }
-    ```
-    test.c
-    ```c
-    #include <stdio.h>
-    #include <unistd.h>
-    extern int *g_pointer;
-    extern void func();
-
-    void test_1()
-    {
-        printf("test_1() : %p\n", test_1);
-    }
-
-    void test_2()
-    {
-        printf("test_2() : %p\n", test_2);
-    }
-
-    void test_3()
-    {
-        printf("test_3() : %p\n", test_3);
-    }
-    int main(int argc, char *argv[])
-    {
-        typedef void(TFunc)();
-        TFunc* fa[] = { test_1, test_2, test_3 };
-        int i = 0;
-
-        printf("main() : begin...\n");
-
-        for(i = 0; i < argc; i++) {
-            printf("argv[%d] = %s\n", i, argv[i]);
-        }
-
-        for(i = 0; i < 100; i++) {
-            fa[i%3]();
-            sleep(argc > 1);
-        }
-
-        printf("g_pointer = %p\n", g_pointer);
-        func();
-
-        printf("main() : end...\n");
-        return 0;
-    }
-    ```

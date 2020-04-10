@@ -47,7 +47,18 @@ $1 = 0x804a024 &lt;var&gt;
 0x804a024 &lt;var&gt;:   0x01    // 代表该系统为小端
 </pre>
 
-- 实测[^1]
+- 实测
+
+main.c
+```c
+#include <stdio.h>
+int a;
+int main(int argc, char **argv)
+{
+        return 0;
+}
+```
+
 <pre style=" background-color:#fff">
 $ gcc -g main.c
 $ gdb a.out
@@ -81,7 +92,7 @@ $1 = 0x601034 &lt;a&gt;
 0x601034 &lt;a&gt;:   0x01
 </pre>
 
-## 实验 - 变量断点和内存查看[^2]
+## [<u>实验 - 变量断点和内存查看</u>](code/12_GDB_Debugging_weapon_2)
 编译执行
 <pre style=" background-color:#fff">
 $ gcc -g watch.c -lpthread
@@ -188,7 +199,7 @@ g_var = 1
     | info variables | 查看程序中的变量符号   |
     | info functions | 查看程序中的函数符号   |
 
-## 实验[^3]
+## [<u>实验</u>](code/12_GDB_Debugging_weapon_2)
 编译调试
 <pre style=" background-color:#fff">
 $ gcc -g frame.c
@@ -380,7 +391,7 @@ type = struct ST {
 }
 </pre>
 
-## 实验[^4]
+## [<u>实验</u>](code/12_GDB_Debugging_weapon_2)
 编译调试
 <pre style=" background-color:#fff">
 $ gdb
@@ -669,112 +680,3 @@ Quit anyway? (y or n) y
 - watch 用于<font color=purple>监视变量</font>是否被改变, x用于<font color=purple>查看内存中的数据</font>
 - GDB 支持函数调用栈的查看 (backtrace, info frames)
 - GDB 支持运行时对程序中的符号进行查看 (whatis, ptype)
-
-
-[^1]: code
-    main.c
-    ```c
-    #include <stdio.h>
-    int a;
-    int main(int argc, char **argv)
-    {
-            return 0;
-    }
-    ```
-[^2]: code
-    watch.c
-    ```c
-    #include <stdio.h>
-    #include <pthread.h>
-    #include <unistd.h>
-
-    int g_var = 0;
-
-    void *thread_func(void *args)
-    {
-        sleep(5);
-
-        g_var = 1;
-    }
-
-    int main()
-    {
-        int i = 0;
-        pthread_t tid = 0;
-
-        pthread_create(&tid, NULL, thread_func, NULL);
-
-        for(i = 0; i < 10; i++) {
-            printf("g_var = %d\n", g_var);
-
-            sleep(1);
-        }
-    }
-    ```
-
-[^3]: code
-    frame.c
-    ```c
-    #include <stdio.h>
-
-    int sum(int n)
-    {
-        int ret = 0;
-
-        if( n > 0 )
-        {
-            ret = n + sum(n - 1);
-        }
-
-        return ret;
-    }
-
-    int main()
-    {
-        int s = 0;
-
-        s = sum(10);
-
-        printf("sum = %d\n", s);
-
-        return 0;
-    }
-    ```
-
-[^4]: code
-    tricks.c
-    ```c
-    #include <stdio.h>
-
-    int g_var = 1;
-
-    struct ST {
-        int i;
-        int j;
-    };
-
-    int func()
-    {
-        struct ST st[5] = {0};
-        int i = 0;
-
-        for(i = 0; i < 5; i++) {
-            st[i].i = i;
-            st[i].j = i * i;
-        }
-
-        for(i = 0; i < 5; i++) {
-            printf("st[%d].i = %d\n", i, st[i].i);
-            printf("st[%d].j = %d\n", i, st[i].j);
-        }
-    }
-
-    int main()
-    {
-        static int c_var = 2;
-
-        func();
-
-        return 0;
-    }
-    ```
