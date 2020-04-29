@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include "timer.h"
 
-#define MAX 32
+#define MAX 32 // 最多支持32个定时器同时工作
 #define GAP 10
 
 struct STimer
@@ -18,8 +18,8 @@ struct STimer
     int id;
     int interval;
     int current;
-    int in_callback;
-    int to_delete;
+    int in_callback; // 防御性编程2 : add
+    int to_delete; // 防御性编程2 : add
     TimerCallback* callback;
     void* data;
 };
@@ -46,13 +46,13 @@ static void* Runtime(void* args)
             
                 if( st->current >= st->interval )
                 {
-                    st->in_callback = 1;
+                    st->in_callback = 1; // 防御性编程2 : add
                     st->callback(st, st->data);
-                    st->in_callback = 0;
+                    st->in_callback = 0; // 防御性编程2, 在进行定时器的回调操作时,不能进行destroy操作
                     
-                    st->current = 0;
+                    st->current = 0; // 防御性编程2, 若无上面一行, 回调操作时destroy定时器, st将变为野指针
                     
-                    if( st->to_delete )
+                    if( st->to_delete ) // 防御性编程2 : add
                     {
                         g_timers[st->id] = NULL;
             
@@ -64,7 +64,7 @@ static void* Runtime(void* args)
         
         pthread_mutex_unlock(&mutex);  
         
-        usleep(GAP * 1000);
+        usleep(GAP * 1000); // 使用了软件上的时钟源
     }
     
     for(i=0; i<MAX; i++)
@@ -76,7 +76,7 @@ static void* Runtime(void* args)
 
 void TimerInitialize()
 {
-    if( !g_run )
+    if( !g_run ) // 防御性编程1 : TimerInitialize只能初始化一次
     {
         pthread_t tid = 0;
         
@@ -137,7 +137,7 @@ void DestroyTimer(Timer* timer)
     {
         struct STimer* st = (struct STimer*)timer;
         
-        if( st->in_callback )
+        if( st->in_callback )     // 防御性编程2: 修补
         {
             st->to_delete = 1;
         }
