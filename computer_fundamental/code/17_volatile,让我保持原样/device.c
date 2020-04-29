@@ -2,7 +2,15 @@
 #include <pthread.h>
 #include <unistd.h>
 
+#if 0
+
 int g_ready = 0;
+
+#else   // 解决方案
+
+volatile int g_ready = 0;
+
+#endif
 
 void* init_device(void* args)
 {

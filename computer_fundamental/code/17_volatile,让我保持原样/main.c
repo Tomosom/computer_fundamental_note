@@ -1,7 +1,16 @@
 #include <stdio.h>
 #include <pthread.h>
 
-extern const int g_ready;
+#if 0
+
+extern const int g_ready; // 此处声明const 表示仅在当前文件, 该变量具有只读属性
+//extern int g_ready;   // 若不用const, 则不会出现这个问题
+
+#else   // 解决方案
+
+extern const volatile int g_ready;
+
+#endif
 
 int main()
 {
