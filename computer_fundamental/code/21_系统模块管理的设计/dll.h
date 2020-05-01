@@ -1,28 +1,3 @@
-/******************************************************************************
- *                                                                            *
- * This program is distributed in the hope that it will be useful, but        *
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY *
- * or FITNESS FOR A PARTICULAR PURPOSE. This file and program are licensed    *
- * under the GNU Lesser General Public License Version 3, 29 June 2007.       *
- * The complete license can be accessed from the following location:          *
- * http://opensource.org/licenses/lgpl-3.0.html                               *
- *                                                                            *
- * Author: Yun Li (yunli.open@gmail.com)                                      *
- *   Date: 10/04/2009                                                         *
- *                                                                            *
- ******************************************************************************/
-
-/******************************************************************************
-  REVISION HISTORY
-  ================
-  
-  Date     Version  Name          Description
-  -------- -------  ------------  --------------------------------------------
-
-  -------- -------  ------------  --------------------------------------------
-
- ******************************************************************************/
-
 #ifndef __DLL_H
 #define __DLL_H
 
@@ -93,10 +68,10 @@ dll_node_t *dll_pop_head (dll_t *_p_dll);
 dll_node_t *dll_pop_tail (dll_t *_p_dll);
 void dll_remove (dll_t *_p_dll, const dll_node_t *_p_node);
 dll_node_t *dll_traverse (dll_t *_p_dll, traverse_callback_t _cb, void *_p_arg);
-dll_node_t *dll_traverse_reversely (dll_t *_p_dll, traverse_callback_t _cb, 
+dll_node_t *dll_traverse_reversely (dll_t *_p_dll, traverse_callback_t _cb,
     void *_p_arg);
 void dll_merge (dll_t *_p_to, dll_t *_p_from);
-void dll_split (dll_t *_p_orig, dll_t *_p_derived, dll_node_t *_p_breakpoint, 
+void dll_split (dll_t *_p_orig, dll_t *_p_derived, dll_node_t *_p_breakpoint,
     bool _breakpoint_belongs_to_orig);
 
 #ifdef __cplusplus
