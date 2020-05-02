@@ -1,32 +1,7 @@
-/******************************************************************************
- *                                                                            *
- * This program is distributed in the hope that it will be useful, but        *
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY *
- * or FITNESS FOR A PARTICULAR PURPOSE. This file and program are licensed    *
- * under the GNU Lesser General Public License Version 3, 29 June 2007.       *
- * The complete license can be accessed from the following location:          *
- * http://opensource.org/licenses/lgpl-3.0.html                               *
- *                                                                            *
- * Author: Yun Li (yunli.open@gmail.com)                                      *
- *   Date: 08/29/2009                                                         *
- *                                                                            *
- ******************************************************************************/
-
-/******************************************************************************
-  REVISION HISTORY
-  ================
-  
-  Date     Version  Name          Description
-  -------- -------  ------------  --------------------------------------------
-
-  -------- -------  ------------  --------------------------------------------
-
- ******************************************************************************/
- 
 #ifndef __ERROR_H
 #define __ERROR_H
 
-// since GLIB defines the error_t, to avoid conflicting we have to apply the 
+// since GLIB defines the error_t, to avoid conflicting we have to apply the
 // macro __error_t_defined which is defined in GLIB to determine whether the
 // error_t should be defined here or not
 #ifndef __error_t_defined
