@@ -6,7 +6,7 @@
 void demo1()
 {
     error_t err = ERROR_T(ERROR_TIMER_ALLOC_NOTIMER);
-    
+
     printf("Module Timer: %X\n", MODULE_TIMER);
     printf("Error Sample: %X\n", err);
     printf("Error Mark: %X\n", (err & ERROR_MARK) != 0);
@@ -25,60 +25,62 @@ void demo1()
 
 int do_task()
 {
-    // ... ... 
-    
-    return 0; //ERROR_T(ERROR_TIMER_STATE_INVSTATE);
+    // ... ...
+
+    return ERROR_T(ERROR_TIMER_STATE_INVSTATE);
+    //return 0;
 }
 
 int sub_func()
 {
     int ret = 0;
-    
+
     ret = do_task();
-    
+
     if(ret & ERROR_MARK)
         LOG(sub_func, ret);
-    
+
     // return 0 for no exception
-    return ret; 
+    return ret;
 }
 
 int err_handler(int e)
 {
     int ret = 0;
 
-    if( e & ERROR_MARK )
+    if( e & ERROR_MARK ) {
         switch(e ^ ERROR_MARK)
         {
-            // handle something unexcepted 
+            // handle something unexcepted
             case ERROR_TIMER_STATE_INVSTATE:
                 printf("Reset Timer State!!!\n");
                 ret = 1;
                 break;
         }
-    else
+    } else {
         ret = 1;
-    
+    }
+
     // return 1 for success handling
-    return ret; 
+    return ret;
 }
 
 void demo2()
 {
     printf("demo2() begin ...\n");
-    
+
     HANDLER(sub_func());
-    
+
     printf("demo2() end ...\n");
 }
 
 int main()
 {
     demo1();
-    
+
     printf("\n");
-    
+
     demo2();
-    
+
     return 0;
 }

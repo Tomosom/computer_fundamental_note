@@ -1,0 +1,18 @@
+#ifndef __ERRMOD_H
+#define __ERRMOD_H
+
+#include "module.h"
+
+enum {
+    // for module management
+    ERROR_MODULE_REG_INVMODULE = ERROR_BEGIN (MODULE_MODULE),
+    ERROR_MODULE_REG_INVLEVEL,
+    ERROR_MODULE_REG_INVCB,
+    ERROR_MODULE_REGISTERED,
+    ERROR_MODULE_INIT_FAILURE,
+    ERROR_MODULE_UP_FAILURE,
+    ERROR_MODULE_DOWN_FAILURE
+};
+
+#endif
+

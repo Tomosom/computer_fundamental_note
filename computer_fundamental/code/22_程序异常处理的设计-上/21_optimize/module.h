@@ -1,28 +1,3 @@
-/******************************************************************************
- *                                                                            *
- * This program is distributed in the hope that it will be useful, but        *
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY *
- * or FITNESS FOR A PARTICULAR PURPOSE. This file and program are licensed    *
- * under the GNU Lesser General Public License Version 3, 29 June 2007.       *
- * The complete license can be accessed from the following location:          *
- * http://opensource.org/licenses/lgpl-3.0.html                               *
- *                                                                            *
- * Author: Yun Li (yunli.open@gmail.com)                                      *
- *   Date: 08/29/2009                                                         *
- *                                                                            *
- ******************************************************************************/
-
-/******************************************************************************
-  REVISION HISTORY
-  ================
-  
-  Date     Version  Name          Description
-  -------- -------  ------------  --------------------------------------------
-
-  -------- -------  ------------  --------------------------------------------
-
- ******************************************************************************/
- 
 #ifndef __MODULE_H
 #define __MODULE_H
 
@@ -44,10 +19,10 @@ typedef enum {
     MODULE_QUEUE,           // for queue management
     MODULE_HEAP,            // for heap management
     MODULE_MPOOL,           // for memory pool management
-    
+
     MODULE_TESTAPP,         // for Test Application
 
-    // !!! NOTE: please always put the MODULE_COUNT and MODULE_LAST at the 
+    // !!! NOTE: please always put the MODULE_COUNT and MODULE_LAST at the
     // end of this enum
     MODULE_COUNT,
     MODULE_LAST = (MODULE_COUNT - 1)
@@ -59,7 +34,7 @@ typedef enum {
     PERIPHERALS_LEVEL,
     DRIVER_LEVEL,
     OS_LEVEL,
-    
+
     // for platform layer
     PLATFORM_LEVEL0,
     PLATFORM_LEVEL1,
@@ -69,7 +44,7 @@ typedef enum {
     PLATFORM_LEVEL5,
     PLATFORM_LEVEL6,
     PLATFORM_LEVEL7,
-    
+
     // for framework layer
     FRAMEWORK_LEVEL0,
     FRAMEWORK_LEVEL1,
@@ -79,7 +54,7 @@ typedef enum {
     FRAMEWORK_LEVEL5,
     FRAMEWORK_LEVEL6,
     FRAMEWORK_LEVEL7,
-    
+
     // for application layer
     APPLICATION_LEVEL0,
     APPLICATION_LEVEL1,
@@ -110,7 +85,7 @@ extern "C" {
 
 error_t system_up ();
 void system_down ();
-error_t module_register (const char _name [], module_t _module, 
+error_t module_register (const char _name [], module_t _module,
     init_level_t _level, module_callback_t _callback);
 system_state_t system_state ();
 
