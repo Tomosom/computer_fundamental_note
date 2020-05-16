@@ -8,6 +8,9 @@
     "sub_directories": [
         {
             "name": "computer_fundamental"
+        },
+        {
+            "name": "leetcode"
         }
     ],
     "tags": [
