@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "vx_attachments":true,
+        "vx_images":true,
+        "vx_notebook":true,
+        "vx_recycle_bin":true,
+        ".git*":true,
+        "**/*.json":true,
+    }
+}

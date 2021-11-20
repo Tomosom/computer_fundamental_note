@@ -1,8 +1,8 @@
 # 嵌入式开发中的常见情形
-![](_v_images_17/1.png)
-![](_v_images_17/2.png)
+![](vx_images/_v_images_17/1.png)
+![](vx_images/_v_images_17/2.png)
 
-# [<u>实验 - 设备启动及初始化</u>](code/17_volatile,让我保持原样)
+# [<u>实验 - 设备启动及初始化</u>](vx_attachments/code/17_volatile,让我保持原样)
 
 正常编译执行, 结果ok
 
@@ -53,7 +53,7 @@ main() - launching device : g_ready = 0
         - <font color=blue>volatile</font> 可理解为 <font color=#d0d>"编译器警告指示字"</font>
         - <font color=blue>volatile</font> 告诉编译器<font color=#d0d>必须每次去内存中取变量值</font>
 
-# [<u>实验 - 使用 volatile 修饰变量</u>](code/17_volatile,让我保持原样)
+# [<u>实验 - 使用 volatile 修饰变量</u>](vx_attachments/code/17_volatile,让我保持原样)
 
 main.c中 `extern const int g_ready;` 更改为 `extern const volatile int g_ready;`
 define.c中 `int g_ready = 0;` 更改为 `volatile int g_ready = 0;`
@@ -80,9 +80,9 @@ main() - device status : g_ready = 1
     - <font color=blue>volatile</font> 表示使用变量时<font color=blue>直接从内存取值</font>
     - <font color=blue>const</font> 和 <font color=blue>volatile</font> 同时修饰变量时<font color=red>互不影响</font>其含义
 
-    ![](_v_images_17/3.png)
+    ![](vx_images/_v_images_17/3.png)
 
-- [<u>const 实验</u>](code/17_volatile,让我保持原样/const_test)
+- [<u>const 实验</u>](vx_attachments/code/17_volatile,让我保持原样/const_test)
 
 <pre style=" background-color:#fff">
 $ gcc main.c

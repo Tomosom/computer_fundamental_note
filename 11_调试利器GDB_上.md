@@ -34,7 +34,7 @@
     - (gdb) <font color=blue>set args</font> <font color=purple>arg1 arg2</font>     // 设置命令行参数
     - (gdb) <font color=blue>run</font>                    // 执行目标程序
     </pre>
-    ![](_v_images_11/1.png)
+    ![](vx_images/_v_images_11/1.png)
 
 - 应用示例二 - 跟踪某个进程的执行
     <pre>
@@ -43,9 +43,9 @@
                                    // 目标进程将停止执行
     - (gdb) <font color=blue>continue</font>               // 恢复执行
     </pre>
-    ![](_v_images_11/2.png)
+    ![](vx_images/_v_images_11/2.png)
 
-# [<u>实验</u>](code/11_GDB_Debugging_weapon_1)
+# [<u>实验</u>](vx_attachments/code/11_GDB_Debugging_weapon_1)
 编译运行, 出现段错误
 
 <pre style=" background-color:#fff">
@@ -287,7 +287,7 @@ $
     - GDB 中通过 <font color=blue>hbreak</font> 命令支持硬件断点
     - <font color=blue>hbreak</font> 与 <font color=red>break</font> 使用方式完全一致
 
-# [<u>实验</u>](code/11_GDB_Debugging_weapon_1)
+# [<u>实验</u>](vx_attachments/code/11_GDB_Debugging_weapon_1)
 <pre style=" background-color:#fff">
 $ gcc -g *.c
 </pre>

@@ -3,7 +3,7 @@
     - GDB 中支持<font color=red>数据断点</font>的设置
     - watch 命令用于<font color=blue>监视变量是否被改变</font> (本质为硬件断点)
     - watch 命令的用法 : <font color=green>watch var_name</font>
-    >1. 数据断点不像软件断点和硬件断点, 当程序执行到某个特殊的代码行时, 就停止运行. 
+    >1. 数据断点不像软件断点和硬件断点, 当程序执行到某个特殊的代码行时, 就停止运行.
     >2. 数据断点是当我们感兴趣的某个变量改变了,就起作用, 当前程序的执行就会暂停, 并且GDB会提示我们哪个变量被改变了
     >3. 数据断点的本质是硬件断点, 需要硬件的支持才可以起作用, 因此数据断点的数量也是有限的
 
@@ -92,7 +92,7 @@ $1 = 0x601034 &lt;a&gt;
 0x601034 &lt;a&gt;:   0x01
 </pre>
 
-## [<u>实验 - 变量断点和内存查看</u>](code/12_GDB_Debugging_weapon_2)
+## [<u>实验 - 变量断点和内存查看</u>](vx_attachments/code/12_GDB_Debugging_weapon_2)
 编译执行
 <pre style=" background-color:#fff">
 $ gcc -g watch.c -lpthread
@@ -184,9 +184,9 @@ g_var = 1
         - 查看当前函数调用的栈帧信息
 
 - 什么是栈帧信息 ? (c进阶)
-    > 函数调用的时候, 会产生一个`活动记录`, 这个`活动记录`就位于栈上面, 主要记录下图中的内容. 
+    > 函数调用的时候, 会产生一个`活动记录`, 这个`活动记录`就位于栈上面, 主要记录下图中的内容.
 
-    ![](_v_images_12/1.png)
+    ![](vx_images/_v_images_12/1.png)
 
 - 深入 info 命令
 
@@ -199,7 +199,7 @@ g_var = 1
     | info variables | 查看程序中的变量符号   |
     | info functions | 查看程序中的函数符号   |
 
-## [<u>实验</u>](code/12_GDB_Debugging_weapon_2)
+## [<u>实验</u>](vx_attachments/code/12_GDB_Debugging_weapon_2)
 编译调试
 <pre style=" background-color:#fff">
 $ gcc -g frame.c
@@ -391,7 +391,7 @@ type = struct ST {
 }
 </pre>
 
-## [<u>实验</u>](code/12_GDB_Debugging_weapon_2)
+## [<u>实验</u>](vx_attachments/code/12_GDB_Debugging_weapon_2)
 编译调试
 <pre style=" background-color:#fff">
 $ gdb
